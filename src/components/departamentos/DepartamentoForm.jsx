@@ -19,7 +19,8 @@ const DepartamentoForm = () => {
   const loadDepartamento = async () => {
     try {
       setLoading(true);
-      const data = await getDepartamento(id);
+      const response  = await getDepartamento(id);
+      const data=response.data;
       setNombre(data.nombre || '');
     } catch (err) {
       setError('Error al cargar el departamento');
@@ -53,7 +54,7 @@ const DepartamentoForm = () => {
   return (
     <div className="card">
       <div className="card-header">
-        <h3>{isEditing ? 'Editar' : 'Crear'} Departamento</h3>
+      <h3>{isEditing ? `Editar Departamento: ${nombre || '...'}` : 'Crear Departamento'}</h3>
       </div>
       <div className="card-body">
         {error && <div className="alert alert-danger">{error}</div>}

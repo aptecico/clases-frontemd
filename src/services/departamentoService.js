@@ -30,6 +30,7 @@ export const createDepartamento = async (departamentoData) => {
 export const updateDepartamento = async (id, departamentoData) => {
   try {
     const response = await api.put(`/departamentos/${id}`, departamentoData);
+    console.log(response.data);
     return response.data;
   } catch (error) {
     throw error.response.data;
